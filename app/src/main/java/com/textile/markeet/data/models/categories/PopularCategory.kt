@@ -8,5 +8,11 @@ class PopularCategory {
     @SerializedName("category")
     @Expose
     var categoryString: String? = null
+    @SerializedName("category_icon")
+    @Expose
+    var categoryIcon: String? = null
+    @SerializedName("count")
+    @Expose
+    var count: String? = null
 
 }
