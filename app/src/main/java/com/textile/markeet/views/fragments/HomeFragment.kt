@@ -131,13 +131,11 @@ class HomeFragment(mainActivity: MainActivity) : BaseFragment() {
                         popularCategoryAdapter?.setData(it)
                     }
                 }
-
                 getLatestAds()
             })
     }
 
     private fun getLatestAds() {
-
 
         adsViewModel?.getLatestAds(token)
             ?.observe(this, Observer { adsDataContainer ->
@@ -155,7 +153,6 @@ class HomeFragment(mainActivity: MainActivity) : BaseFragment() {
 
     private fun getEndingSoon() {
 
-
         adsViewModel?.getEndingSoonAds(token)
             ?.observe(this, Observer { adsDataContainer ->
                 if (adsDataContainer != null) {
@@ -163,19 +160,19 @@ class HomeFragment(mainActivity: MainActivity) : BaseFragment() {
 
                     endingSoonAdsList?.let {
 
-             /*           val geocoder = Geocoder(context, Locale.getDefault())
+                        /*           val geocoder = Geocoder(context, Locale.getDefault())
 
-                        val addresses: List<Address> =
-                            geocoder.getFromLocation(
-                                it[0].dataDetail[0].latitude.toDouble(),
-                                it[0].dataDetail[0].longitude.toDouble(),
-                                1
-                            )
-                        val cityName: String = addresses[0].getAddressLine(0)
-                        val stateName: String = addresses[0].getAddressLine(1)
-                        val countryName: String = addresses[0].getAddressLine(2)*/
+                                   val addresses: List<Address> =
+                                       geocoder.getFromLocation(
+                                           it[0].dataDetail[0].latitude.toDouble(),
+                                           it[0].dataDetail[0].longitude.toDouble(),
+                                           1
+                                       )
+                                   val cityName: String = addresses[0].getAddressLine(0)
+                                   val stateName: String = addresses[0].getAddressLine(1)
+                                   val countryName: String = addresses[0].getAddressLine(2)*/
 
-                  //      Log.d("city_name", "$cityName : $stateName : $countryName")
+                        //      Log.d("city_name", "$cityName : $stateName : $countryName")
 
                     }
 
