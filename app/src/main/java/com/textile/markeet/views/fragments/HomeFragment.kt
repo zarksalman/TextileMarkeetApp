@@ -1,16 +1,15 @@
 package com.textile.markeet.views.fragments
 
 import AdsData
-import android.location.Address
-import android.location.Geocoder
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
 import com.textile.markeet.R
 import com.textile.markeet.adapters.AdsAdapter
@@ -20,8 +19,8 @@ import com.textile.markeet.helpers.AppConstants
 import com.textile.markeet.viewmodels.AdsViewModel
 import com.textile.markeet.viewmodels.PopularCategoryViewModel
 import com.textile.markeet.views.activities.MainActivity
+import com.textile.markeet.views.activities.ParentCategoriesListActivity
 import kotlinx.android.synthetic.main.fragment_home.*
-import java.util.*
 
 
 class HomeFragment(mainActivity: MainActivity) : BaseFragment() {
@@ -97,6 +96,13 @@ class HomeFragment(mainActivity: MainActivity) : BaseFragment() {
         adsViewModel =
             ViewModelProviders.of(this).get(AdsViewModel::class.java)
 
+        id_show.setOnClickListener {
+
+
+            val intent = Intent(activity, ParentCategoriesListActivity::class.java)
+            startActivity(intent)
+        }
+
         initAdapter()
         getPopularCategories()
 
@@ -106,7 +112,7 @@ class HomeFragment(mainActivity: MainActivity) : BaseFragment() {
     private fun initAdapter() {
 
         popularCategoryAdapter = PopularCategoryAdapter(mcontext)
-        recyclerview.layoutManager = GridLayoutManager(context, 2)
+        recyclerview.layoutManager = GridLayoutManager(context, 2) as RecyclerView.LayoutManager?
         recyclerview.adapter = popularCategoryAdapter
 
         adsAdapter = AdsAdapter(mcontext)
@@ -162,19 +168,19 @@ class HomeFragment(mainActivity: MainActivity) : BaseFragment() {
 
                     endingSoonAdsList?.let {
 
-             /*           val geocoder = Geocoder(context, Locale.getDefault())
+                        /*           val geocoder = Geocoder(context, Locale.getDefault())
 
-                        val addresses: List<Address> =
-                            geocoder.getFromLocation(
-                                it[0].dataDetail[0].latitude.toDouble(),
-                                it[0].dataDetail[0].longitude.toDouble(),
-                                1
-                            )
-                        val cityName: String = addresses[0].getAddressLine(0)
-                        val stateName: String = addresses[0].getAddressLine(1)
-                        val countryName: String = addresses[0].getAddressLine(2)*/
+                                   val addresses: List<Address> =
+                                       geocoder.getFromLocation(
+                                           it[0].dataDetail[0].latitude.toDouble(),
+                                           it[0].dataDetail[0].longitude.toDouble(),
+                                           1
+                                       )
+                                   val cityName: String = addresses[0].getAddressLine(0)
+                                   val stateName: String = addresses[0].getAddressLine(1)
+                                   val countryName: String = addresses[0].getAddressLine(2)*/
 
-                  //      Log.d("city_name", "$cityName : $stateName : $countryName")
+                        //      Log.d("city_name", "$cityName : $stateName : $countryName")
 
                     }
 

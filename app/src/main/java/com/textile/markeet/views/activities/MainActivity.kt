@@ -2,6 +2,7 @@ package com.textile.markeet.views.activities
 
 import android.os.Bundle
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
@@ -10,6 +11,7 @@ import com.textile.markeet.R
 import com.textile.markeet.views.fragments.DashboardFragment
 import com.textile.markeet.views.fragments.HomeFragment
 import com.textile.markeet.views.fragments.NotificationFragment
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
     private var mFragmentManager: FragmentManager? = null
@@ -31,7 +33,8 @@ class MainActivity : BaseActivity() {
                 R.id.navigation_home -> {
                     textMessage.setText(R.string.title_home)
 
-                    fragment = mFragmentManager!!.findFragmentByTag(HomeFragment::class.java!!.getName())
+                    fragment =
+                        mFragmentManager!!.findFragmentByTag(HomeFragment::class.java!!.getName())
 
                     if (fragment == null) {
                         fragment = HomeFragment(this)
@@ -46,7 +49,8 @@ class MainActivity : BaseActivity() {
                     textMessage.setText(R.string.title_dashboard)
 
 
-                    fragment = mFragmentManager!!.findFragmentByTag(DashboardFragment::class.java!!.getName())
+                    fragment =
+                        mFragmentManager!!.findFragmentByTag(DashboardFragment::class.java!!.getName())
 
                     if (fragment == null) {
                         fragment = DashboardFragment(this)
@@ -59,7 +63,8 @@ class MainActivity : BaseActivity() {
                 }
                 R.id.navigation_notifications -> {
                     textMessage.setText(R.string.title_notifications)
-                    fragment = mFragmentManager!!.findFragmentByTag(NotificationFragment::class.java!!.getName())
+                    fragment =
+                        mFragmentManager!!.findFragmentByTag(NotificationFragment::class.java!!.getName())
 
                     if (fragment == null) {
                         fragment = NotificationFragment(this)
@@ -82,7 +87,6 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
-        textMessage = findViewById(R.id.message)
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
 
@@ -103,6 +107,9 @@ class MainActivity : BaseActivity() {
             }
             oldFragment = fragment
             fragmentTransaction!!.commit()
+        }
+        id_tool_bar.setOnClickListener {
+            Toast.makeText(this, "Tool bar clicked", Toast.LENGTH_LONG).show()
         }
     }
 
