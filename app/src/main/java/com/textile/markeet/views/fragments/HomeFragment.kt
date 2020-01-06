@@ -110,7 +110,6 @@ class HomeFragment(mainActivity: MainActivity) : BaseFragment() {
         recyclerview.adapter = popularCategoryAdapter
 
         adsAdapter = AdsAdapter(mcontext)
-        adsAdapter = AdsAdapter(mcontext)
 
 
         rv_latest_ending_ads.layoutManager = GridLayoutManager(context, 2)
