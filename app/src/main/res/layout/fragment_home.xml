@@ -24,7 +24,9 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:text="@string/popular_category"
-                android:textSize="14sp" />
+                android:textSize="20sp"
+
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/id_show"

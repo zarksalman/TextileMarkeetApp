@@ -47,7 +47,7 @@ class ParentCategoryAdapter(val context: Context) :
         fun setCategoryName(name: String?) {
 
             name?.let {
-                mView.tv_parent_category_name.text = name
+                mView.id_title_text.text = name
             }
         }
 

@@ -12,9 +12,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
 
-data class AdsData (
+data class AdsData(
 
-	@SerializedName("Title") val title : String,
-	@SerializedName("Content") val content : String,
-	@SerializedName("Detail") val dataDetail : List<DataDetail>
+    @SerializedName("Title") val title: String,
+    @SerializedName("Content") val content: String,
+    @SerializedName("Detail") val dataDetail: List<DataDetail>,
+    @SerializedName("image") val images: String
 )

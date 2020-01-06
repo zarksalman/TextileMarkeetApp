@@ -6,8 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import com.textile.markeet.R
+import kotlinx.android.synthetic.main.item_ads_layout.view.*
+import kotlinx.android.synthetic.main.item_ads_layout.view.id_content_text
+import kotlinx.android.synthetic.main.item_ads_layout.view.id_title_text
 import kotlinx.android.synthetic.main.item_parent_category_layout.view.*
+import kotlinx.android.synthetic.main.item_popular_layout.view.*
+import java.io.File
 
 class AdsAdapter(val context: Context) :
     RecyclerView.Adapter<AdsAdapter.ParentCategoryViewHolder>() {
@@ -18,7 +24,7 @@ class AdsAdapter(val context: Context) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ParentCategoryViewHolder {
         return ParentCategoryViewHolder(
             LayoutInflater.from(context).inflate(
-                R.layout.item_parent_category_layout,
+                R.layout.item_ads_layout,
                 parent,
                 false
             )
@@ -26,7 +32,9 @@ class AdsAdapter(val context: Context) :
     }
 
     override fun onBindViewHolder(holder: ParentCategoryViewHolder, position: Int) {
-        holder.setCategoryName(adsDataList[position].title)
+        holder.setTitle(adsDataList[position].title)
+        holder.setContent(adsDataList[position].content)
+        holder.setImage(adsDataList[position].images)
     }
 
     override fun getItemCount(): Int {
@@ -44,10 +52,31 @@ class AdsAdapter(val context: Context) :
 
         private val mView = view
 
-        fun setCategoryName(title: String?) {
+        fun setTitle(title: String?) {
 
             title?.let {
-                mView.tv_parent_category_name.text = title
+                mView.id_title_text.text = title
+
+            }
+        }
+
+        fun setContent(content: String?) {
+
+            content?.let {
+
+                mView.id_content_text.text = content
+
+            }
+        }
+
+        fun setImage(image: String?) {
+
+            image?.let {
+
+
+                Picasso.with(itemView.context) // give it the context
+                    .load(File(image)) // load the image
+                    .into(mView.id_popular_image) // select the ImageView to load it into
             }
         }
 

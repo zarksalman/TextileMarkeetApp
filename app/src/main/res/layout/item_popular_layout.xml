@@ -9,40 +9,39 @@
 
 
     <LinearLayout
-        android:paddingTop="20dp"
-android:paddingBottom="20dp"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_gravity="center_horizontal"
         android:orientation="vertical"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_gravity="center_horizontal"
-
             android:id="@+id/id_popular_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:background="@drawable/com_facebook_button_icon_blue" />
 
         <TextView
-            android:layout_gravity="center"
             android:id="@+id/id_title_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="djkblasjfblas"
             android:textSize="21sp"
             android:textStyle="bold" />
 
         <TextView
-            android:layout_gravity="center_horizontal"
             android:id="@+id/id_content_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:text="dbsklasdbgfl" />
 
     </LinearLayout>

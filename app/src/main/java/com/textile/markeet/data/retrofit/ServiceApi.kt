@@ -28,7 +28,7 @@ interface ServiceApi {
     @GET("get_expiray_ads")
     fun getExpiryAds(@Header("Authorization") auth: String): Call<AdsDataContainer>
 
-    @GET("get_ads")
+    @GET("get_latest_ads")
     fun getlatestAds(@Header("Authorization") auth: String): Call<AdsDataContainer>
 
 }
