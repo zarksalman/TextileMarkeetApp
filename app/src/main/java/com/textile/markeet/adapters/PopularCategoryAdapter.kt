@@ -5,11 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Picasso
 import com.textile.markeet.R
 import com.textile.markeet.data.models.categories.PopularCategory
 import kotlinx.android.synthetic.main.item_popular_layout.view.*
-import java.io.File
 
 class PopularCategoryAdapter(val context: Context) :
     RecyclerView.Adapter<PopularCategoryAdapter.ParentCategoryViewHolder>() {
@@ -68,9 +66,9 @@ class PopularCategoryAdapter(val context: Context) :
         fun setImageContent(itemView: View, categoryString: String?) {
 
 
-            Picasso.with(itemView.context) // give it the context
-                .load(File(categoryString)) // load the image
-                .into(mView.id_popular_image) // select the ImageView to load it into
+//            Picasso.with(itemView.context) // give it the context
+//                .load(File(categoryString)) // load the image
+//                .into(mView.id_popular_image) // select the ImageView to load it into
 
         }
 
