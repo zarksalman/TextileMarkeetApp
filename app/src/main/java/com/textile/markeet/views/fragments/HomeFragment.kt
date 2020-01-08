@@ -61,10 +61,6 @@ class HomeFragment(mainActivity: MainActivity) : BaseFragment() {
         secondTab.text = "Ending Soon Ads" // set the Text for the second Tab
         tb_ads!!.addTab(secondTab) // add  the tab  in the TabLayout
 
-        /* var adapter = PagerAdapter(mcontext, fragmentManager, tb_ads?.getTabCount())
-         simpleViewPager?.adapter = adapter
-        */ // addOnPageChangeListener event change the tab on slide
-
         tb_ads?.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabReselected(p0: TabLayout.Tab?) {
 

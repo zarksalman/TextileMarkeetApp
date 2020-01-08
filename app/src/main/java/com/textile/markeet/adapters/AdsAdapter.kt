@@ -2,6 +2,8 @@ package com.textile.markeet.adapters
 
 import AdsData
 import android.content.Context
+import android.os.Build
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.textile.markeet.R
 import kotlinx.android.synthetic.main.item_ads_layout.view.*
+import kotlinx.android.synthetic.main.item_ads_layout.view.id_content_text
+import kotlinx.android.synthetic.main.item_ads_layout.view.id_title_text
+import kotlinx.android.synthetic.main.item_popular_layout.view.*
 
 class AdsAdapter(val context: Context) :
     RecyclerView.Adapter<AdsAdapter.ParentCategoryViewHolder>() {
@@ -59,8 +64,12 @@ class AdsAdapter(val context: Context) :
 
             content?.let {
 
-                mView.id_content_text.text = content
-
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    mView.id_content_text.text =
+                        (Html.fromHtml(content, Html.FROM_HTML_MODE_COMPACT))
+                } else {
+                    mView.id_content_text.text = (Html.fromHtml(content))
+                }
             }
         }
 

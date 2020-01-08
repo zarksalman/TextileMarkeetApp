@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="djkblasjfblas"
-            android:textSize="21sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView
@@ -42,7 +42,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="dbsklasdbgfl" />
+            android:maxLength="20"
+            android:maxLines="2"
+            android:text="dbsklasdbgfl"
+            android:textSize="12sp" />
 
 
         <TextView
@@ -50,7 +53,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-
             android:text="dbsklasdbgfl"
             android:textColor="#ff0000" />
 

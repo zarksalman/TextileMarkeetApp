@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
+import com.bumptech.glide.Glide
 import com.textile.markeet.R
 import com.textile.markeet.data.models.categories.PopularCategory
 import kotlinx.android.synthetic.main.item_popular_layout.view.*
@@ -27,9 +29,12 @@ class PopularCategoryAdapter(val context: Context) :
     }
 
     override fun onBindViewHolder(holder: ParentCategoryViewHolder, position: Int) {
-        holder.setCategoryName(popularCategoryList[position].categoryString)
+
+        holder.setCategory(popularCategoryList[position])
+
+        /*holder.setCategoryName(popularCategoryList[position].categoryString)
         holder.setContent(popularCategoryList[position].count)
-        holder.setImageContent(holder.itemView, popularCategoryList[position].categoryIcon)
+        holder.setImageContent(holder.itemView, popularCategoryList[position].categoryIcon)*/
     }
 
     override fun getItemCount(): Int {
@@ -46,41 +51,29 @@ class PopularCategoryAdapter(val context: Context) :
     class ParentCategoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         private val mView = view
+        val circularProgressDrawable = CircularProgressDrawable(mView.context)
 
-        fun setCategoryName(name: String?) {
+        init {
 
-            name?.let {
-                mView.id_title_text.text = name
+            circularProgressDrawable.strokeWidth = 5f
+            circularProgressDrawable.centerRadius = 30f
+            circularProgressDrawable.start()
+        }
 
+        fun setCategory(popularCategory: PopularCategory?) {
+
+            popularCategory?.let {
+                mView.tv_ads_title.text = it.categoryString
+                mView.tv_ads_count.text = it.count
+
+                Glide
+                    .with(mView.context)
+                    .load(it.categoryIcon)
+                    .centerCrop()
+                    .override(100, 100)
+                    .placeholder(circularProgressDrawable)
+                    .into(mView.iv_category_icon)
             }
         }
-
-        fun setContent(contentText: String?) {
-
-            contentText?.let {
-                mView.id_content_text.text = contentText
-
-            }
-        }
-
-        fun setImageContent(itemView: View, categoryString: String?) {
-
-
-//            Picasso.with(itemView.context) // give it the context
-//                .load(File(categoryString)) // load the image
-//                .into(mView.id_popular_image) // select the ImageView to load it into
-
-        }
-
-//        fun setImageContent(contentText: String?) {
-//
-//            Picasso.with()
-//                .placeholder(R.mipmap.ic_launcher) // give it the context
-//                .load(contentText) // load the image
-//                .into(mView.id_popular_image) // select the ImageView to load it into
-//
-//
-//        }
-
     }
 }
